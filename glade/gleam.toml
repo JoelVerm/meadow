@@ -15,5 +15,8 @@ gleam = ">= 0.32.0"
 
 [dependencies]
 gleam_stdlib = "~> 0.34 or ~> 1.0"
-simplifile = "~> 1.7"
-shellout = "~> 1.6"
+glare = "~> 0.1"
+mist = ">= 1.0.0 and < 2.0.0"
+gleam_http = ">= 3.6.0 and < 4.0.0"
+gleam_otp = ">= 0.10.0 and < 1.0.0"
+gleam_erlang = ">= 0.25.0 and < 1.0.0"

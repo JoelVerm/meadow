@@ -1,5 +1,7 @@
-import glade_server.{start}
+import glade.{start_server}
+import web/index
 
+@target(erlang)
 pub fn main() {
-  start()
+  start_server([index.server])
 }
