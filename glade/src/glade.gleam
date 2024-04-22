@@ -1,8 +1,8 @@
 import glare.{create_render, select}
 import glare/element.{type Node, main}
-import server
-import gleam/list
 import gleam/io
+import gleam/list
+import server
 
 pub type Signal(a) {
   Signal(value: a, name: String)
@@ -26,16 +26,18 @@ pub fn server_signal(signal: Signal(a)) -> #(fn() -> a, fn(a) -> Nil)
 pub fn server_signal(
   prev: List(server.Handler(a)),
   signal: Signal(a),
-  handle: fn(a) -> a
+  handle: fn(a) -> a,
 ) -> List(server.Handler(a)) {
   [server.Signal(signal.name, signal.value, handle), ..prev]
 }
 
 @target(erlang)
-pub fn start_server(routes: List(fn(List(server.Handler(Int))) -> List(server.Handler(Int)))) -> Nil {
-  routes |> list.fold([], fn (routes, route) {
-    route(routes)
-  }) |> server.server
+pub fn start_server(
+  routes: List(fn(List(server.Handler(Int))) -> List(server.Handler(Int))),
+) -> Nil {
+  routes
+  |> list.fold([], fn(routes, route) { route(routes) })
+  |> server.server
 }
 
 @target(javascript)
