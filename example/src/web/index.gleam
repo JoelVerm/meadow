@@ -3,8 +3,8 @@ import glare.{signal, text}
 import glare/element.{button, header, p}
 import glare/event.{onclick}
 import glare/property.{class, font_family, size}
-import gleam/io
 import gleam/int
+import gleam/io
 
 const count_signal = glade.Signal(0, "index-count")
 

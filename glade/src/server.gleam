@@ -61,15 +61,24 @@ fn serve_page(
   _req: Request(Connection),
   path: List(String),
 ) -> Response(ResponseData) {
-  let project_name = simplifile.current_directory() |> result.nil_error |> result.then(fn (dir) {
-    dir |> string.split("/build") |> list.first
-  }) |> result.then(fn (dir) {
-    dir |> string.split("/") |> list.last
-  }) |> result.nil_error |> result.unwrap("PROJECT_NAME_ERROR")
+  let project_name =
+    simplifile.current_directory()
+    |> result.nil_error
+    |> result.then(fn(dir) {
+      dir
+      |> string.split("/build")
+      |> list.first
+    })
+    |> result.then(fn(dir) {
+      dir
+      |> string.split("/")
+      |> list.last
+    })
+    |> result.nil_error
+    |> result.unwrap("PROJECT_NAME_ERROR")
   let file_path = string.join(["glade", project_name, "web", ..path], "/")
   response.new(200)
-   |> response.set_body(mist.Bytes(bytes_builder.from_string(
-    "<!DOCTYPE html>
+  |> response.set_body(mist.Bytes(bytes_builder.from_string("<!DOCTYPE html>
 <html lang=\"en\">
     <head>
         <meta charset=\"UTF-8\" />
@@ -82,11 +91,9 @@ fn serve_page(
     </head>
     <body></body>
 </html>
-"
-   )))
-   |> response.set_header("content-type", "text/html")
+")))
+  |> response.set_header("content-type", "text/html")
 }
-
 
 @target(erlang)
 fn serve_file(
