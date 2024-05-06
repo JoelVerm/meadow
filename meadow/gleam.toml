@@ -1,10 +1,10 @@
-name = "glade"
+name = "meadow"
 version = "1.0.0"
 gleam = ">= 0.32.0"
 
 description = "A server side for glare, the web framework based on SolidJS, adding server signals and more."
 licences = ["MIT"]
-repository = { type = "github", user = "JoelVerm", repo = "glade" }
+repository = { type = "github", user = "JoelVerm", repo = "meadow" }
 links = []
 
 [dependencies]

@@ -45,7 +45,7 @@ pub fn server(handlers: List(Handler(a))) {
             Error(_) -> not_found
             Ok(handler) -> handle_server_signal(value, handler)
           }
-        ["glade", ..segments] -> serve_file(req, segments)
+        ["meadow", ..segments] -> serve_file(req, segments)
         segments -> serve_page(req, segments)
       }
     }
@@ -76,7 +76,7 @@ fn serve_page(
     })
     |> result.nil_error
     |> result.unwrap("PROJECT_NAME_ERROR")
-  let file_path = string.join(["glade", project_name, "web", ..path], "/")
+  let file_path = string.join(["meadow", project_name, "web", ..path], "/")
   response.new(200)
   |> response.set_body(mist.Bytes(bytes_builder.from_string("<!DOCTYPE html>
 <html lang=\"en\">

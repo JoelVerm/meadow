@@ -1,18 +1,21 @@
-# Glade
+# Meadow
+
+[![Package Version](https://img.shields.io/hexpm/v/meadow)](https://hex.pm/packages/meadow)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/meadow/)
 
 A server side for glare, the web framework based on SolidJS, adding server signals and more.
 
 ## Installation
 
-Create a new gleam project and install glare and glade.
+Create a new gleam project and install glare and meadow.
 
 ```sh
 gleam new my-project
 cd my-project
 
-# Install glare and glade
+# Install glare and meadow
 gleam add glare
-gleam add glade
+gleam add meadow
 ```
 
 ## Usage
@@ -20,7 +23,7 @@ gleam add glade
 Create a new file `src/my-project.gleam` and add the following code:
 
 ```gleam
-import glade.{start_server}
+import meadow.{start_server}
 import web/index
 
 @target(erlang)
@@ -32,7 +35,7 @@ pub fn main() {
 Create a new file `src/web/index.gleam` and add the following code:
 
 ```gleam
-import glade.{html, server_signal}
+import meadow.{html, server_signal}
 import glare.{signal, text}
 import glare/element.{button, header, p}
 import glare/event.{onclick}
@@ -40,7 +43,7 @@ import glare/property.{class, font_family, size}
 import gleam/io
 import gleam/int
 
-const count_signal = glade.Signal(0, "index-count")
+const count_signal = meadow.Signal(0, "index-count")
 
 @target(javascript)
 pub fn client() {

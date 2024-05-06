@@ -1,4 +1,4 @@
-import glade.{start_server}
+import meadow.{start_server}
 import web/index
 
 @target(erlang)

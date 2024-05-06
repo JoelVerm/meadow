@@ -1,4 +1,4 @@
-import glade.{html, server_signal}
+import meadow.{html, server_signal}
 import glare.{signal, text}
 import glare/element.{button, header, p}
 import glare/event.{onclick}
@@ -6,7 +6,7 @@ import glare/property.{class, font_family, size}
 import gleam/int
 import gleam/io
 
-const count_signal = glade.Signal(0, "index-count")
+const count_signal = meadow.Signal(0, "index-count")
 
 @target(javascript)
 pub fn client() {
