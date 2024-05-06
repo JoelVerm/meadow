@@ -4,6 +4,7 @@ import glare/element.{button, header, p}
 import glare/event.{onclick}
 import glare/property.{class, font_family, size}
 import gleam/io
+import gleam/int
 
 const count_signal = glade.Signal(0, "index-count")
 
@@ -30,5 +31,8 @@ pub fn client() {
 @target(erlang)
 pub fn server(s) {
   s
-  |> server_signal(count_signal, fn(a) { a + 10 })
+  |> server_signal(count_signal, fn(a) {
+    io.println("count: " <> int.to_string(a))
+    a + 2
+  })
 }

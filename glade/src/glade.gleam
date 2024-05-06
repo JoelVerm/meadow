@@ -15,7 +15,7 @@ pub fn html(node: List(Node)) {
 
 @target(erlang)
 pub fn html(_) {
-  ""
+  Nil
 }
 
 @target(javascript)
@@ -41,6 +41,6 @@ pub fn start_server(
 }
 
 @target(javascript)
-pub fn start_server() {
+pub fn start_server(_) {
   Nil
 }
