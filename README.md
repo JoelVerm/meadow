@@ -1,6 +1,6 @@
 # Glade
 
-A server side for glare, the web framework based on SolidJS.
+A server side for glare, the web framework based on SolidJS, adding server signals and more.
 
 ## Installation
 
