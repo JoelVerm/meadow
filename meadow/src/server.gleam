@@ -79,6 +79,10 @@ fn serve_page(
     |> result.nil_error
     |> result.unwrap("PROJECT_NAME_ERROR")
   let file_path = string.join(["meadow", project_name, "web", ..path], "/")
+  let file_path = case path |> list.is_empty {
+    True -> file_path <> "/index"
+    False -> file_path
+  }
   response.new(200)
   |> response.set_body(mist.Bytes(bytes_builder.from_string("<!DOCTYPE html>
 <html lang=\"en\">
