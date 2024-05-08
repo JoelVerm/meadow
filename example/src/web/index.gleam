@@ -1,10 +1,10 @@
-import meadow.{html, server_signal}
 import glare.{signal, text}
 import glare/element.{button, header, p}
 import glare/event.{onclick}
 import glare/property.{class, font_family, size}
 import gleam/int
 import gleam/io
+import meadow.{html, server_signal}
 
 const count_signal = meadow.Signal(0, "index-count")
 
